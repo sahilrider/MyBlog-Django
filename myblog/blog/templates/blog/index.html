@@ -1,0 +1,28 @@
+
+{% block content %}
+    
+    <h2>Articles</h2>
+    {% if articles %}
+        <ul>
+        {% for art in articles %}
+            <li><a href="{% url 'blog:view_article' art.id %}">{{ art.title }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no Articles.</p>
+    {% endif %}
+
+    <h2>Genre</h2>
+    {% if genres %}
+        <ul>
+        {% for g in genres %}
+            <li><a href=" {% url 'blog:view_genre' g.id %}">{{ g.title }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no Genre.</p>
+    {% endif %}
+
+{% endblock %}
+
+
